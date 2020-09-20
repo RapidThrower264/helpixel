@@ -1,0 +1,194 @@
+/*  Stylings for things that need to be consistent on each page */
+nav {
+  display: table;
+}
+
+#main-section {
+  background-color: rgba(46, 46, 46, 0.7);
+  width: 90vw;
+  margin: 100px auto 0 auto;
+  padding: 2vh 0;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header {
+  margin: 0 auto 7vh auto;
+  padding: 1vw;
+  border: 3px solid #F3EFF5; /* ghost white */
+  width: 83.5vw;
+  background-color: #2D7DD2; /* light blue */
+}
+
+/* Styling Different Headings to be consistent on each page */
+h1 {
+  text-align: center;
+  font-size: 3em;
+  font-family: 'Montserrat', sans-serif;
+  color: #F3EFF5; /* ghost white */
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #F3EFF5; /* ghost white */
+}
+
+h3, h4{
+  margin: 3px 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #F3EFF5; /* ghost white */
+}
+
+p {
+  font-family: 'Cairo', sans-serif;
+  color: #F3EFF5; /* ghost white */
+}
+
+strong {
+  font-weight: 700;
+}
+
+ /* dark section at bottom of page */
+footer {
+  background-color: #333333;  /* dark grey */
+  width: 100%;
+  height: 100px;
+}
+
+/* Changes what links look like in different forms */
+a:link {
+  color: #F3EFF5; /* ghost white */
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 1s ease;
+  border-radius: 8px;
+}
+
+a:visited {
+  color: #F3EFF5; /* ghost white */
+}
+
+a:hover {
+  text-decoration: underline;
+  color: black;
+  background-color: rgba(51, 51, 51, 0.5); /* dark grey */
+  background-color: #F3EFF5; /* ghost white */
+}
+a:hover h2 {
+  color: #111;
+}
+
+.active {
+  background-color: #2D7DD2;
+}
+
+/* Styles for the small navigation at top of the screen */
+#mini-nav-wrapper {
+  display: table-row;
+  width: 95vw;
+}
+
+.mini-nav-element {
+  list-style: none;
+  display: table-cell;
+  font-size: 18px;
+  vertical-align: middle;
+  width: 15%;
+}
+
+.mini-nav-link {
+  text-decoration: none;
+  font-size: 1.25em;
+  padding: 15px;
+}
+
+a span {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.mini-nav-icon {
+  vertical-align: middle;
+}
+
+.mini-nav-icon {
+  width: 3vw;
+  height: auto;
+}
+
+.mythic, .legendary, .epic, .rare, .uncommon, .common {
+  border-radius: 10px;
+  padding: 0 2px;
+}
+
+.mythic {
+  background-color: #FF55FF; /* pink */
+}
+
+.legendary {
+  background-color: #FFAA00; /* gold */
+}
+
+.epic {
+  background-color: #9E009E; /* purple */
+  color: #FFFFFF; /* white to increase colour contrast */
+}
+
+.rare {
+  background-color: #2333FF; /* blue */
+  color: #FFFFFF; /* white to increase colour contrast */
+}
+
+.uncommon {
+  background-color: #55FF55; /* green */
+}
+
+.common {
+  background-color: #AAAAAA; /* grey */
+}
+
+/* taken from https://www.w3schools.com/css/css_tooltip.asp */
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  margin-top: -5px;
+}
+
+#not-reforged .tooltip .tooltiptext {
+  margin-right: 10px;
+}
+
+.container .tooltip .tooltiptext {
+  margin-left: 10px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+/* end of w3schools code */

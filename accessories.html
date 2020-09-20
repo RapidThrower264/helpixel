@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hypixel Skyblock Help - Accessories</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hypixel Skyblock Help - Accessories">
+    <meta name="keywords" content="Hypixel, Skyblock, Player Help, Talismans, Accessories, Accessory">
+    <meta name="author" content="R4PlD">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/subpage.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">  <!-- importing Montserrat Font -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/talismans.js"></script>
+    <script src="scripts/randomBackground.js"></script>
+  </head>
+  <body onload="generateAllTalismanButtons();randomBackgroundImage();">
+    <nav>
+      <ul id="mini-nav-wrapper">     <!-- Start of Navigation -->
+        <li class="mini-nav-element">
+          <a href="index.html" class="mini-nav-link">  <!-- Link for Armour Page -->
+            Home
+          </a>
+        </li>
+
+        <li class="mini-nav-element">
+          <a href="armour.html" class="mini-nav-link">  <!-- Link for Armour Page -->
+            <img src="assets/images/diamond_chestplate.png" class="mini-nav-icon" alt="Diamond Chestplate"/>
+            <span>Armour</span>
+          </a>
+        </li>
+
+        <li class="mini-nav-element">
+          <a href="accessories.html" class="mini-nav-link active">  <!-- Link for Accessories Page-->
+            <img src="assets/images/accessories.png" class="mini-nav-icon" alt="Intimidation Talisman"/>
+            <span>Accessories</span>
+          </a>
+        </li>
+
+        <li class="mini-nav-element">
+          <a href="reforges.html" class="mini-nav-link">  <!-- Link for Accessory Reforges Page-->
+            <img src="assets/images/reforges.png" class="mini-nav-icon" alt="Reforge Anvil"/>
+            <span>Accessory Reforges</span>
+          </a>
+        </li>
+      </ul>     <!-- End of Navigation-->
+    </nav>
+
+    <div id="main-section">  <!-- start of main page information -->
+      <header>
+        <h1>Hypixel Skyblock Help</h1>
+        <h2>Accessories</h2>
+      </header>
+
+      <div id="title-area">
+      </div>
+      <div id="playerInfo">
+        <div id="playerSearch">
+          <h3>Enter Player Name</h3>
+          <input id="playerName" oninput="userEntryChange()">  <!-- area where user enters there name -->
+          <button onclick="searchPlayer()">Search</button>
+        </div>
+        <div id="profileSelect">
+          <h3>Select Profile</h3>
+          <select id="profile-select" onchange="showOwnedTalismans()" disabled>  <!-- area where user selects their profile -->
+            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+          </select>
+        </div>
+      </div>
+
+      <main id="accessories-main">
+        <div id="accessories-scroll">
+        </div>
+
+        <div id="accessory-info">
+          <div>
+            <img id="accessory-img" src="assets/images/talisman_images/image_not_found.png" class="large-talisman-img" alt="unknown talisman"/>
+          </div>
+          <div id="accessory-text-info">
+            <h3 id="accessory-title">Click a talisman to view information</h3>  <!-- accessory name -->
+            <h3 id="accessory-rarity">Rarity</h3> <!-- accessory rarity -->
+            <h4>Talisman Information</h4>
+            <p id="accessory-description"></p>  <!-- accessory description -->
+            <p><strong id="obtain-method">Obtaining: </strong><span id="items-area">X</span><br/>  <!-- accessory obtaining method -->
+               <strong>Drop Chance: </strong><span id="drop-chance-percent">X%</span><i id="drop-chance-fraction">(X/X)</i></p>  <!-- mob drop chance -->
+          </div>
+        </div>
+      </main>
+    </div> <!-- end of main page information -->
+  </body>
+</html>

@@ -1,0 +1,256 @@
+#added-stats-wrapper { /* Box that holds the stats provided by the talismans and some information */
+  width: 85vw;
+  margin: 0 auto;
+  margin-bottom: 7.5vh;
+  border: 5px solid #F3EFF5; /* Ghost White */
+  padding: 10px;
+}
+
+#added-stats { /* the actual box containing the information */
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+#playerInfo {  /* the box containing player name and profile select */
+  width: 83vw;
+  margin: 0 auto 7.5vh auto;
+  border: 5px solid #F3EFF5; /* Ghost White */
+  background-color: #2D7DD2; /* light blue */
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#playerSearch {  /* input box to search for player name */
+  display: inline;
+}
+
+#playerSearch p {
+  margin: 0;
+}
+
+#playerSearch, #profileSelect {
+  float: left;
+  margin: 0 40px;
+}
+
+#profile-select {  /* combo box to select profile name */
+  transition: background 1.5s;
+}
+
+#accessories {  /* the box that contains the entire drag and drop experience */
+  width: 85vw;
+  margin: 0 auto;
+  border: 5px solid #F3EFF5; /* Ghost White */
+  display: flex;
+  justify-content: space-between;
+}
+
+#not-reforged {  /* the box containing non reforged talismans */
+  height: 50vh;
+  width: 50%;
+  border-right: 5px solid #F3EFF5; /* ghost white */
+  padding: 3px;
+  overflow-y: scroll;
+  direction: rtl;
+}
+
+#reforges {  /* box containing each reforge container */
+  position: relative;
+  height: 50.4vh;
+  width: 48%;
+  overflow-y: scroll;
+}
+
+.container {  /* styles for each reforge type */
+  border: 5px solid #F3EFF5; /* ghost white */
+  border-bottom: 0px;
+  border-right: 0px;
+  min-height: 150px;
+  min-width: 150px;
+  flex-grow: 1;
+}
+
+.added-stats-container {  /* styles for the content that can be toggled on/off */
+  margin-left: 10px;
+}
+
+.reforge-item {
+  display: flex;
+}
+
+.drag-img { /* styles for the draggable images */
+  width: auto;
+  height: 5vw;
+  padding: 0.35vh 0;
+  border-radius: 10px;
+}
+
+/* styles for accessories page */
+#accessories-main {
+  width: 85vw;
+  height: 50vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border: 5px solid #F3EFF5; /* ghost white */
+  min-height: 500px;
+}
+
+#accessories-scroll { /* the left section containing all the talismans that are able to be collected */
+  width: 20%;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+.accessory-box { /* the button that this is applied to */
+  border: 1px solid black;
+  flex-grow: 1;
+  height: 10vh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2D7DD2;
+}
+
+.owned-talisman { /* styles for talismans in the players inventory */
+  background-color: #55FF55; /* green */
+}
+
+.owned-talisman h3{
+  color: black;
+}
+
+.talisman-img {  /* small view of image */
+  width: auto;
+  height: 3vw;
+  padding: 0.5vh 0.3vh;
+  border-radius: 10px;
+}
+
+.large-talisman-img { /* large view of image */
+  width: auto;
+  height: 30vh;
+  padding: 0.35vh 0;
+  border-radius: 10px;
+}
+
+#accessory-info {  /* the displayed information to the user */
+  width: 80%;
+  background-color: rgba(20, 20, 20, 0.7);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.variable_rarity {  /* styles for a "rainbow" background */
+background: rgb(170,170,170);
+background: -moz-linear-gradient(90deg, rgba(170,170,170,1) 20%, rgba(85,255,85,1) 20%, rgba(85,255,85,1) 40%, rgba(35,51,255,1) 40%, rgba(35,51,255,1) 60%, rgba(170,0,170,1) 60%, rgba(170,0,170,1) 80%, rgba(255,170,0,1) 80%);
+background: -webkit-linear-gradient(90deg, rgba(170,170,170,1) 20%, rgba(85,255,85,1) 20%, rgba(85,255,85,1) 40%, rgba(35,51,255,1) 40%, rgba(35,51,255,1) 60%, rgba(170,0,170,1) 60%, rgba(170,0,170,1) 80%, rgba(255,170,0,1) 80%);
+background: linear-gradient(90deg, rgba(170,170,170,1) 20%, rgba(85,255,85,1) 20%, rgba(85,255,85,1) 40%, rgba(35,51,255,1) 40%, rgba(35,51,255,1) 60%, rgba(170,0,170,1) 60%, rgba(170,0,170,1) 80%, rgba(255,170,0,1) 80%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#aaaaaa",endColorstr="#ffaa00",GradientType=1);
+}
+
+#accessory-text-info { /* ensures that the width of the accessory information is atleast 50% */
+  max-width: 50%;
+}
+
+/* styles for armour page */
+#armour-main {
+  width: 85vw;
+  height: 40vh;
+  margin: 7vh auto 0 auto;
+  border: 5px solid #F3EFF5; /* Ghost White */
+  display: flex;
+  justify-content: space-between;
+}
+
+#armours-scroll { /* area where all the different armour pieces are */
+  overflow-y: scroll;
+  height: 100%;
+  width: 30%;
+  border-right: 5px solid #F3EFF5; /* Ghost White */;
+  margin: 0;
+}
+
+#armours-info-box { /* area contiaing indepth information about each armour */
+  width: 65%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#armour-image { /* the armour image */
+  height: 40vh;
+  width: auto;
+}
+
+#armours-text-area { /* the main text are */
+  width: 60%;
+  border-left: 5px solid #F3EFF5; /* ghost white */
+  border-top: 5px solid #F3EFF5; /* ghost white */
+  border-bottom: 5px solid #F3EFF5; /* ghost white */
+  background-color: #2D7DD2; /* blue */
+  padding: 10px;
+  opacity: 1;
+}
+
+.armour-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 0px;
+  border: 1px solid black;
+  transition: box-shadow 1s;
+}
+
+.common h3, h4#armour-rarity.common, .uncommon h3, h4#armour-rarity.uncommon {
+  color: #1E1E2E; /* black */
+}
+
+span.common, span.uncommon {
+  color: #1E1E2E; /* black */
+}
+
+.armour-button:hover {
+  -webkit-box-shadow: inset 0px 0px 40px -2px rgba(0,0,0,1);
+  -moz-box-shadow: inset 0px 0px 40px -2px rgba(0,0,0,1);
+  box-shadow: inset 0px 0px 40px -2px rgba(0,0,0,1);
+}
+
+.defence, .health, .intelligence, .crit, .strength, .speed {
+  border-radius: 5px;
+  padding: 2px 10px;
+  border: 1px solid black;
+  line-height: 2.3;
+}
+
+.defence {
+  background-color: #55FF55; /* green */
+  color: #000000; /* black */
+}
+
+.health { background-color: #FF5555; /* red */ }
+
+.intelligence {
+  background-color: #55FFFF; /* aqua */
+  color: #000000; /* black */
+}
+
+.crit {
+  background-color: #0000AA; /* blue */
+  color: #FFFFFF; /* white */
+}
+
+.strength { background-color: #AA0000; /* red */ }
+
+.speed {
+  background-color: #FFFFFF; /* white */
+  color: #000000; /* black */
+}
+
+.full-set-bonus {
+  font-weight: bold;
+  color: #FFAA00 /* gold */
+}

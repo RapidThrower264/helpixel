@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hypixel Skyblock Help - Accessory Reforges</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hypixel Skyblock Help - Reforges">
+    <meta name="keywords" content="Hypixel, Skyblock, Player Help, Talismans, Accessories, Accessory, Reforges, Skyblock Stats Booster">
+    <meta name="author" content="R4PlD">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/subpage.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">  <!-- importing Montserrat Font -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  <!-- importing jquery library -->
+    <script src="scripts/optimizer.js"></script>   <!-- importing script for calculating and generating talismans -->
+    <script src="scripts/randomBackground.js"></script>
+  </head>
+  <body onload="generateAutomatedTalismans();randomBackgroundImage();">
+    <nav>
+      <ul id="mini-nav-wrapper">     <!-- Start of Navigation -->
+        <li class="mini-nav-element">
+          <a href="index.html" class="mini-nav-link">  <!-- Link for Armour Page -->
+            Home
+          </a>
+        </li>
+
+        <li class="mini-nav-element">
+          <a href="armour.html" class="mini-nav-link">  <!-- Link for Armour Page -->
+            <img src="assets/images/diamond_chestplate.png" class="mini-nav-icon" alt="Diamond Chestplate"/>
+            <span>Armour</span>
+          </a>
+        </li>
+
+        <li class="mini-nav-element">
+          <a href="accessories.html" class="mini-nav-link">  <!-- Link for Accessories Page-->
+            <img src="assets/images/accessories.png" class="mini-nav-icon" alt="Intimidation Talisman"/>
+            <span>Accessories</span>
+          </a>
+        </li>
+
+        <li class="mini-nav-element">
+          <a href="reforges.html" class="mini-nav-link active">  <!-- Link for Accessory Reforges Page-->
+            <img src="assets/images/reforges.png" class="mini-nav-icon" alt="Reforge Anvil"/>
+            <span>Accessory Reforges</span>
+          </a>
+        </li>
+      </ul>     <!-- End of Navigation-->
+    </nav>
+
+    <div id="main-section">
+      <header>
+        <h1>Hypixel Skyblock Help</h1>
+        <h2>Accessory Reforges</h2>
+      </header>
+
+      <div id="added-stats-wrapper">  <!-- start of added stats and info section -->
+        <h3>Information About This Reforger</h3>
+        <p>Enter your name and profile below and get all your accessories added <strong>OR</strong>
+          move existing accesories to the different boxes and the website will automatically calculate the stats that are
+          given by that accessory.<br/>
+        <strong>NOTE</strong>: this doesn't take into account the base stats of each talisman i.e. red claw accessories giving crit damage</p>
+
+        <h3>Added Stats Due To Reforges</h3>
+        <div id="added-stats">    <!-- start of stat bonuses -->
+          <p id="strength">Strength: 0</p>
+          <p id="crit-dmg">Crit Damage: 0</p>
+          <p id="crit-chance">Crit Chance: 0</p>
+          <p id="attack-speed">Attack Speed: 0</p>
+          <p id="health">Health: 0</p>
+          <p id="defence">Defence: 0</p>
+          <p id="intel">Intelligence: 0</p>
+          <p id="walk-speed">Walk Speed: 0</p>
+        </div>  <!-- end of stat bonuses -->
+      </div>  <!-- end of added stats and info section -->
+
+      <div id="playerInfo">
+        <div id="playerSearch">
+          <h3>Enter Player Name</h3>
+          <input id="playerName" oninput="userEntryChange()"/>  <!-- area where users enter there name -->
+          <button onclick="searchPlayer()">Search</button>
+        </div>
+        <div id="profileSelect">
+          <h3>Select Profile</h3>
+          <select id="profile-select" onchange="displayTalismans()" disabled> <!-- area where user selects there profile -->
+            <option value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+          </select>
+        </div>
+
+        <button onclick="reorganiseReforges()">Change Order of Reforges</button>
+
+      </div>
+
+      <main id="accessories">  <!-- start of drag and drop interaction -->
+        <div id="not-reforged" class="untouched" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <h3 class="tooltip">Not Reforged
+            <span class="tooltiptext">Adds No Stats</span>
+          </h3>
+        </div>
+
+        <div id="reforges">
+          <div class="bizzare container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Bizzare<span class="tooltiptext" id="bizzare-added-stats"></span></h3>
+          </div>
+
+          <div class="ominous container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Ominous<span class="tooltiptext" id="ominous-added-stats"></span></h3>
+          </div>
+
+          <div class="simple container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Simple<span class="tooltiptext" id="simple-added-stats"></span></h3>
+          </div>
+
+          <div class="strange container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Strange<span class="tooltiptext" id="strange-added-stats"></span></h3>
+          </div>
+
+          <div class="pleasant container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Pleasant<span class="tooltiptext" id="pleasant-added-stats"></span></h3>
+          </div>
+
+          <div class="shiny container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Shiny<span class="tooltiptext" id="shiny-added-stats"></span></h3>
+          </div>
+
+          <div class="vivid container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Vivid<span class="tooltiptext" id="vivid-added-stats"></span></h3>
+          </div>
+
+          <div class="pretty container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Pretty<span class="tooltiptext" id="pretty-added-stats"></span></h3>
+          </div>
+
+          <div class="itchy container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Itchy<span class="tooltiptext" id="itchy-added-stats"></span></h3>
+          </div>
+
+          <div class="keen container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Keen<span class="tooltiptext" id="keen-added-stats"></span></h3>
+          </div>
+
+          <div class="unpleasant container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Unpleasant<span class="tooltiptext" id="unpleasant-added-stats"></span></h3>
+          </div>
+
+          <div class="superior container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Superior<span class="tooltiptext" id="superior-added-stats"></span></h3>
+          </div>
+
+          <div class="forceful container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Forceful<span class="tooltiptext" id="forceful-added-stats"></span></h3>
+          </div>
+
+          <div class="hurtful container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Hurtful<span class="tooltiptext" id="hurtful-added-stats"></span></h3>
+          </div>
+
+          <div class="strong container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Strong<span class="tooltiptext" id="strong-added-stats"></span></h3>
+          </div>
+
+          <div class="demonic container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Demonic<span class="tooltiptext" id="demonic-added-stats"></span></h3>
+          </div>
+
+          <div class="zealous container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Zealous<span class="tooltiptext" id="zealous-added-stats"></span></h3>
+          </div>
+
+          <div class="godly container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Godly<span class="tooltiptext" id="godly-added-stats"></span></h3>
+          </div>
+
+          <div class="bloody container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Bloody<span class="tooltiptext" id="bloody-added-stats"></span></h3>
+          </div>
+
+          <div class="shaded container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Shaded<span class="tooltiptext" id="shaded-added-stats"></span></h3>
+          </div>
+
+          <div class="silky container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3 class="tooltip">Silky<span class="tooltiptext" id="silky-added-stats"></span></h3>
+          </div>
+        </div>
+
+      </main> <!-- End of Drag and Drop Interaction -->
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>
